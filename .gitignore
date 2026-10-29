@@ -14,5 +14,6 @@ node_modules/
 *.log
 
 # Editorien asetukset
-.vscode/
+.vscode/*
+!.vscode/extensions.json
 .idea/

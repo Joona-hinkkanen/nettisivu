@@ -40,6 +40,46 @@ Avaa sen jälkeen kansio Visual Studio Codessa: **File → Open Folder**.
    git push
    ```
 
+## Julkaisu
+
+Sivusto on julkaistu GitHub Pagesilla:
+
+**https://joona-hinkkanen.github.io/nettisivu/**
+
+Kun muutos on pushattu `main`-branchiin, GitHub Pages päivittää sivuston automaattisesti noin minuutin kuluessa.
+
+## Yhteismuokkaus reaaliajassa (Live Share)
+
+Git ei tue samanaikaista muokkaamista. Siihen käytetään VS Coden **Live Share** -laajennusta.
+
+**Kutsuja:**
+
+1. Asenna VS Codeen laajennus **Live Share**.
+2. Avaa projekti VS Codessa.
+3. Klikkaa vasemmasta palkista **Live Share** → **Share**.
+4. Kopioi syntyvä linkki ja lähetä kaverille.
+
+**Liittyjä:**
+
+1. Asenna **Live Share** -laajennus.
+2. Avaa saamasi linkki selaimessa ja valitse **Join**.
+
+Live Share ei tallenna muutoksia GitHubiin automaattisesti. Kun lopetat, committaa ja puskaa muutokset normaalisti:
+
+```bash
+git add .
+git commit -m "Yhteismuokkaus"
+git push
+```
+
+## Muokkaaminen selaimessa
+
+Ilman Gitin asennusta voit muokata repoa suoraan selaimessa:
+
+1. Avaa repo GitHubissa.
+2. Paina näppäimistön **`.`** (piste), jolloin selaineditori aukeaa.
+3. Muokkaa tiedostoja ja committaa muutokset suoraan `main`-branchiin.
+
 ## Vinkit
 
 - Aja `git pull` aina ennen kuin aloitat, jotta sinulla on uusin versio.
