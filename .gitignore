@@ -6,6 +6,9 @@ desktop.ini
 # Riippuvuudet
 node_modules/
 
+# Paikallinen Node.js (valinnainen, ei committoida)
+tools/
+
 # Ympäristömuuttujat ja salaisuudet
 .env
 .env.*

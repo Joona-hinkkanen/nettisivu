@@ -1,0 +1,12 @@
+{
+  "name": "nettisivu",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Nettisivu ja reaaliaikainen selaineditori",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
