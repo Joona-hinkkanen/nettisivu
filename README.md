@@ -5,8 +5,8 @@ Pieni nettisivuprojekti (`index.html` ja `style.css`).
 ## Repon kloonaus
 
 ```bash
-git clone https://github.com/OMA_NIMI/REPON_NIMI.git
-cd REPON_NIMI
+git clone https://github.com/Joona-hinkkanen/nettisivu.git
+cd nettisivu
 ```
 
 Avaa sen jälkeen kansio Visual Studio Codessa: **File → Open Folder**.
