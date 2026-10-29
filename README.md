@@ -123,6 +123,33 @@ Avaa sen jälkeen kansio Visual Studio Codessa: **File → Open Folder**.
    git push
    ```
 
+## Automaattinen commit ja push
+
+Jos et halua committaa käsin, käynnistä automaattinen seuranta:
+
+1. Kaksoisklikkaa repossa olevaa **`auto-commit.cmd`**-tiedostoa.
+2. Komentorivi-ikkuna jää auki ja tarkistaa muutokset **2 minuutin välein**.
+3. Kun muutoksia on, ne committoidaan ja pushataan GitHubiin automaattisesti.
+4. Lopeta sulkemalla ikkuna tai painamalla **Ctrl+C**.
+
+Vaihtoehtoisesti PowerShellissa:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\auto-commit.ps1
+```
+
+Tarkistusväliä voi säätää:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\auto-commit.ps1 -IntervalSeconds 60
+```
+
+Huomioitavaa:
+
+- Seuranta committaa **kaikki** muutokset sellaisenaan — älä pidä sitä päällä, jos haluat säästää keskeneräisen työn erilliseen committiin.
+- Ennen pushia se hakee muiden muutokset komennolla `git pull --rebase`.
+- Jos syntyy konflikti, se pitää ratkaista käsin.
+
 ## Julkaisu
 
 Sivusto on julkaistu GitHub Pagesilla:
