@@ -1,0 +1,303 @@
+:root {
+  color-scheme: light;
+  --tausta: #f6f7f2;
+  --teksti: #18251f;
+  --hillitty: #58665f;
+  --korostus: #d34e35;
+  --vihrea: #244b3b;
+  --raja: #dce1d8;
+  --sisalto: 68rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  line-height: 1.65;
+  background: var(--tausta);
+  color: var(--teksti);
+}
+
+a {
+  color: inherit;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--korostus);
+  outline-offset: 5px;
+}
+
+.ohita-linkki {
+  position: absolute;
+  z-index: 2;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.6rem 0.9rem;
+  transform: translateY(-160%);
+  background: var(--teksti);
+  color: white;
+}
+
+.ohita-linkki:focus {
+  transform: translateY(0);
+}
+
+.ylapalkki,
+main,
+.alatunniste {
+  width: min(var(--sisalto), calc(100% - 3rem));
+  margin-inline: auto;
+}
+
+.ylapalkki {
+  min-height: 5.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--raja);
+}
+
+.logo {
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--korostus);
+}
+
+nav {
+  display: flex;
+  gap: 1.75rem;
+}
+
+nav a,
+.alatunniste a {
+  color: var(--hillitty);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+nav a:hover,
+.alatunniste a:hover {
+  color: var(--korostus);
+}
+
+.intro {
+  min-height: 34rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(13rem, 0.7fr);
+  align-items: center;
+  gap: 3rem;
+  padding-block: 5rem;
+}
+
+.ylateksti,
+.osio-numero {
+  margin: 0 0 1.25rem;
+  color: var(--hillitty);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+}
+
+.piste {
+  display: inline-block;
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-right: 0.4rem;
+  border-radius: 50%;
+  background: var(--korostus);
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+h1 {
+  max-width: 12ch;
+  font-size: clamp(3rem, 7vw, 5.6rem);
+  line-height: 1.04;
+}
+
+h1 span {
+  color: var(--vihrea);
+}
+
+.ingressi {
+  max-width: 34rem;
+  margin: 1.5rem 0 1.8rem;
+  color: var(--hillitty);
+  font-size: 1.05rem;
+}
+
+.toiminto {
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.7rem 1rem;
+  background: var(--vihrea);
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 650;
+  text-decoration: none;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.toiminto:hover {
+  transform: translateY(-2px);
+  background: #19382c;
+}
+
+.koriste {
+  aspect-ratio: 1 / 1.08;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--vihrea);
+  background-image: repeating-linear-gradient(135deg, transparent 0 17px, rgb(255 255 255 / 5%) 17px 18px);
+  color: #f6f7f2;
+}
+
+.koriste-kirjain {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 14rem;
+  line-height: 1;
+  opacity: 0.94;
+}
+
+.koriste-teksti {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  color: #d9e3da;
+  font-size: 0.65rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.12em;
+  text-align: right;
+}
+
+.sisalto-osio {
+  display: grid;
+  grid-template-columns: minmax(10rem, 0.7fr) minmax(0, 1.3fr);
+  gap: 3rem;
+  padding: 3.5rem 0;
+  border-top: 1px solid var(--raja);
+}
+
+.sisalto-osio h2 {
+  max-width: 15ch;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15;
+}
+
+.sisalto-osio div > p {
+  max-width: 39rem;
+  color: var(--hillitty);
+}
+
+.yhteys {
+  padding-bottom: 4.5rem;
+}
+
+.sahkoposti {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--vihrea);
+  font-weight: 700;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.sahkoposti span {
+  color: var(--korostus);
+}
+
+.alatunniste {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1.5rem;
+  border-top: 1px solid var(--raja);
+  color: var(--hillitty);
+  font-size: 0.82rem;
+}
+
+.alatunniste p {
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .ylapalkki,
+  main,
+  .alatunniste {
+    width: min(100% - 2rem, var(--sisalto));
+  }
+
+  .intro {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-block: 4rem;
+  }
+
+  h1 {
+    font-size: clamp(2.8rem, 12vw, 4.5rem);
+  }
+
+  .koriste {
+    width: min(100%, 22rem);
+    aspect-ratio: 1.35 / 1;
+  }
+
+  .koriste-kirjain {
+    font-size: 10rem;
+  }
+
+  .sisalto-osio {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding-block: 2.5rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .ylapalkki,
+  main,
+  .alatunniste {
+    width: calc(100% - 1.5rem);
+  }
+
+  nav {
+    gap: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}

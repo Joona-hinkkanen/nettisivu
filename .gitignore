@@ -1,0 +1,18 @@
+# Käyttöjärjestelmien tiedostot
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Riippuvuudet
+node_modules/
+
+# Ympäristömuuttujat ja salaisuudet
+.env
+.env.*
+
+# Lokit
+*.log
+
+# Editorien asetukset
+.vscode/
+.idea/
