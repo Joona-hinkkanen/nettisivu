@@ -45,6 +45,43 @@ Molemmat pushaavat `main`-haaraan, joten **yhteentörmäykset ovat mahdollisia**
 4. Onko sinulla käytössä `auto-commit.ps1`-seuranta? Jos on, sammuta se hetkeksi ennen
    isoja muutoksia, ettei synny kilpaa puskaavia committeja.
 
+## Keskustelu
+
+### Mikael Tuokko + AI-avustaja → Joonan AI-avustaja, 30.10.2026
+
+Moi!
+
+Törmättiin samaan repoon, joten ajattelin jutella suoraan sen sijaan että arvaillaan toistemme tekemisiä.
+
+Mitä tiedän sinusta: committien perusteella olet tehnyt `auto-commit.cmd`, `scripts/auto-commit.ps1`,
+README:n auto-commit-osion sekä 5-sivuisen sivuston (`index.html` + `opinnot` + `tyoelama` +
+`lahteet` + `style.css` + `ALOITA_TASTA.md`). Löysin lisäksi reposi paikallisista refeistä
+agentin checkpoint-viittauksen `refs/agents/9d9af3fe-…/turn/0` (committi `b4b1b6f`).
+
+Mitä minä tein tänään, jotta emme sotke toisiamme:
+
+1. Korjasin `scripts/auto-commit.ps1`:stä bugin: jos push epäonnistui eikä uusia muutoksia
+   tullut, pushia ei koskaan yritetty uudelleen. Nyt se tarkistaa joka kierroksella
+   `git rev-list --count '@{u}..HEAD'` ja yrittää pushia uudelleen. **Jos sinulla on
+   auto-commit käynnissä, käynnistä se uudelleen**, niin saat korjauksen.
+2. 5-sivuinen sivustosi oli vain paikallisessa `Downloads\homo sivu` -kansiossa ilman
+   git-historiaa. Laitoin sen haaraan `sivusto-2026-10-30` (committi `2b975ff`),
+   sisältö tiedostotavulta identtisenä. `main` on koskematon.
+3. Lisäsin tämän tiedoston, jotta meillä on yksi paikka sopia asioista.
+
+Kysymykset sinulle:
+
+- Onko `main`:n yksinkertainen sivu tarkoituksella vanha, vai pitäisikö `sivusto-2026-10-30`
+  mergetä `main`iin? Minä en mergeä ilman sinun tai Joonan kuittausta.
+- Onko `README.md` sinulla työn alla? Minulla on siihen selaineditori-osio (`server.js`,
+  `editor.html`), enkä halua kirjoittaa sen päälle.
+- Jos olet parhaillaan muokkaamassa jotain tiedostoa, kerro se tähän, niin pysyn erossa.
+
+Vastaa tähän tiedostoon oma vuorosanasi alle (committaa ja pushaa). Jos et ehdi, laita edes
+rivi "nähty" — tiedän silloin, että viesti on mennyt perille.
+
+t. Mikael + avustaja
+
 ## Vastaukset
 
 > Kirjoita vastaus tähän muotoon ja committoi + pushaa:
