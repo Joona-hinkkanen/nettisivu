@@ -1,17 +1,15 @@
 :root {
   color-scheme: light;
-  --tausta: #f6f7f2;
-  --teksti: #18251f;
-  --hillitty: #58665f;
-  --korostus: #d34e35;
-  --vihrea: #244b3b;
-  --raja: #dce1d8;
-  --sisalto: 68rem;
+  --paper: #fff7fa;
+  --ink: #2b1821;
+  --muted: #6d5762;
+  --accent: #d3316b;
+  --pink-deep: #7d294e;
+  --line: #ead7df;
+  --content: 68rem;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html {
   scroll-behavior: smooth;
@@ -20,20 +18,14 @@ html {
 
 body {
   margin: 0;
+  background: var(--paper);
+  color: var(--ink);
   font-family: "Segoe UI", sans-serif;
   line-height: 1.65;
-  background: var(--tausta);
-  color: var(--teksti);
 }
 
-a {
-  color: inherit;
-}
-
-a:focus-visible {
-  outline: 3px solid var(--korostus);
-  outline-offset: 5px;
-}
+a { color: inherit; }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
 
 .ohita-linkki {
   position: absolute;
@@ -42,18 +34,13 @@ a:focus-visible {
   left: 0.75rem;
   padding: 0.6rem 0.9rem;
   transform: translateY(-160%);
-  background: var(--teksti);
+  background: var(--ink);
   color: white;
 }
+.ohita-linkki:focus { transform: translateY(0); }
 
-.ohita-linkki:focus {
-  transform: translateY(0);
-}
-
-.ylapalkki,
-main,
-.alatunniste {
-  width: min(var(--sisalto), calc(100% - 3rem));
+.ylapalkki, main, .alatunniste {
+  width: min(var(--content), calc(100% - 3rem));
   margin-inline: auto;
 }
 
@@ -62,50 +49,41 @@ main,
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid var(--raja);
+  gap: 2rem;
+  border-bottom: 1px solid var(--line);
 }
 
 .logo {
-  font-size: 1.1rem;
+  flex: 0 0 auto;
+  font-size: 1.05rem;
   font-weight: 800;
-  letter-spacing: 0.04em;
   text-decoration: none;
 }
-
-.logo span {
-  color: var(--korostus);
+.logo img {
+  display: block;
+  width: 10rem;
+  height: auto;
 }
+.logo span { color: var(--accent); }
 
 nav {
   display: flex;
-  gap: 1.75rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.45rem 1.4rem;
 }
 
-nav a,
-.alatunniste a {
-  color: var(--hillitty);
+nav a, .alatunniste a {
+  color: var(--muted);
   font-size: 0.9rem;
   text-decoration: none;
 }
+nav a:hover, nav a[aria-current="page"], .alatunniste a:hover { color: var(--accent); }
+nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 5px; }
 
-nav a:hover,
-.alatunniste a:hover {
-  color: var(--korostus);
-}
-
-.intro {
-  min-height: 34rem;
-  display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(13rem, 0.7fr);
-  align-items: center;
-  gap: 3rem;
-  padding-block: 5rem;
-}
-
-.ylateksti,
-.osio-numero {
-  margin: 0 0 1.25rem;
-  color: var(--hillitty);
+.ylateksti, .osio-numero {
+  margin: 0 0 1.2rem;
+  color: var(--muted);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.13em;
@@ -117,33 +95,31 @@ nav a:hover,
   height: 0.55rem;
   margin-right: 0.4rem;
   border-radius: 50%;
-  background: var(--korostus);
+  background: var(--accent);
 }
 
-h1,
-h2 {
+h1, h2, h3 {
   margin: 0;
   font-family: Georgia, "Times New Roman", serif;
   font-weight: 400;
   letter-spacing: 0;
 }
 
-h1 {
-  max-width: 12ch;
-  font-size: clamp(3rem, 7vw, 5.6rem);
-  line-height: 1.04;
-}
+h1 { font-size: clamp(3rem, 7vw, 5.6rem); line-height: 1.04; }
+h1 span { color: var(--pink-deep); }
+h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; }
+h3 { font-size: 1.4rem; line-height: 1.25; }
 
-h1 span {
-  color: var(--vihrea);
+.intro {
+  min-height: 34rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(17rem, 0.8fr);
+  align-items: center;
+  gap: 3rem;
+  padding-block: 4rem;
 }
-
-.ingressi {
-  max-width: 34rem;
-  margin: 1.5rem 0 1.8rem;
-  color: var(--hillitty);
-  font-size: 1.05rem;
-}
+.intro h1 { max-width: 14ch; }
+.ingressi { max-width: 38rem; margin: 1.5rem 0 1.8rem; color: var(--muted); font-size: 1.05rem; }
 
 .toiminto {
   display: inline-flex;
@@ -151,153 +127,205 @@ h1 span {
   align-items: center;
   gap: 1.5rem;
   padding: 0.7rem 1rem;
-  background: var(--vihrea);
+  background: var(--pink-deep);
   color: white;
   font-size: 0.9rem;
   font-weight: 650;
   text-decoration: none;
   transition: background-color 160ms ease, transform 160ms ease;
 }
+.toiminto:hover { transform: translateY(-2px); background: #63203d; }
 
-.toiminto:hover {
-  transform: translateY(-2px);
-  background: #19382c;
+.hero-kuva { margin: 0; }
+.hero-kuva img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 4.8;
+  object-fit: cover;
+  background: var(--line);
 }
+.hero-kuva p { display: flex; justify-content: space-between; gap: 1rem; margin: 0.65rem 0 0; color: var(--muted); font-size: 0.72rem; }
+.hero-kuva a { text-underline-offset: 3px; }
 
-.koriste {
-  aspect-ratio: 1 / 1.08;
+.esittely-rivi, .toimipaikka-rivi {
   display: grid;
-  place-items: center;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 3rem;
+  padding: 3.5rem 0;
+  border-top: 1px solid var(--line);
+}
+.esittely-rivi h2, .toimipaikka-rivi h2 { max-width: 18ch; }
+.esittely-rivi > p { max-width: 38rem; margin: 0; color: var(--muted); }
+
+.suunta-kortit {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.suunta {
+  min-height: 14rem;
+  position: relative;
+  padding: 1.5rem 3.5rem 1.5rem 0;
+  text-decoration: none;
+}
+.suunta + .suunta { padding-left: 2rem; border-left: 1px solid var(--line); }
+.suunta-numero { display: block; margin-bottom: 1.5rem; color: var(--accent); font-size: 0.8rem; font-weight: 700; }
+.suunta p { max-width: 25rem; color: var(--muted); }
+.nuoli { position: absolute; right: 1rem; bottom: 1.5rem; color: var(--accent); font-size: 1.4rem; }
+.suunta:hover h2 { color: var(--pink-deep); }
+
+.toimipaikka-rivi { grid-template-columns: minmax(10rem, 0.7fr) minmax(0, 1.3fr); }
+.tekstilinkki { display: inline-block; margin-top: 1.5rem; color: var(--pink-deep); font-weight: 700; text-underline-offset: 4px; }
+
+.kartta-osio {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.75fr) minmax(0, 1.25fr);
+  align-items: center;
+  gap: 3rem;
+  padding: 3.5rem 0;
+  border-top: 1px solid var(--line);
+}
+.kartta-tekstit h2 { max-width: 13ch; }
+.kartta-kuvaus { max-width: 29rem; margin: 1.2rem 0 1.5rem; color: var(--muted); }
+.kartta-osoite { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+.kartta-osoite address { font-size: 0.95rem; font-style: normal; font-weight: 650; line-height: 1.5; }
+.kartta-neula {
+  position: relative;
+  display: inline-block;
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: 0 0 1.1rem;
+  transform: rotate(-45deg);
+  border-radius: 50% 50% 50% 0;
+  background: var(--accent);
+}
+.kartta-neula::after {
+  position: absolute;
+  top: 0.36rem;
+  left: 0.36rem;
+  width: 0.38rem;
+  height: 0.38rem;
+  border-radius: 50%;
+  background: white;
+  content: "";
+}
+.kartta-linkki {
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 1rem;
+  background: var(--pink-deep);
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 650;
+  text-decoration: none;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+.kartta-linkki:hover { transform: translateY(-2px); background: #63203d; }
+.kartta-linkki .kartta-neula { background: white; }
+.kartta-linkki .kartta-neula::after { background: var(--pink-deep); }
+.kartta-kehys {
   position: relative;
   overflow: hidden;
-  background-color: var(--vihrea);
-  background-image: repeating-linear-gradient(135deg, transparent 0 17px, rgb(255 255 255 / 5%) 17px 18px);
-  color: #f6f7f2;
+  min-height: 23rem;
+  border: 1px solid var(--line);
+  background: #e9eee9;
 }
-
-.koriste-kirjain {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 14rem;
-  line-height: 1;
-  opacity: 0.94;
-}
-
-.koriste-teksti {
+.kartta-kehys iframe { display: block; width: 100%; height: 23rem; border: 0; }
+.kartta-leima {
   position: absolute;
-  right: 1rem;
-  bottom: 1rem;
-  color: #d9e3da;
-  font-size: 0.65rem;
-  font-weight: 700;
-  line-height: 1.5;
-  letter-spacing: 0.12em;
-  text-align: right;
+  z-index: 1;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.65rem 0.85rem;
+  background: white;
+  color: var(--ink);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  pointer-events: none;
 }
+
+.sivu-alku { padding: 4rem 0 3rem; }
+.sivu-alku h1 { max-width: 15ch; font-size: clamp(2.8rem, 6vw, 4.8rem); }
+.sivu-alku .ingressi { max-width: 44rem; }
 
 .sisalto-osio {
   display: grid;
   grid-template-columns: minmax(10rem, 0.7fr) minmax(0, 1.3fr);
   gap: 3rem;
-  padding: 3.5rem 0;
-  border-top: 1px solid var(--raja);
+  padding: 3rem 0;
+  border-top: 1px solid var(--line);
 }
+.sisalto-osio h2 { max-width: 15ch; }
+.sisalto-osio h3 { margin-top: 1.5rem; }
+.sisalto-osio div > p, .sisalto-osio li { max-width: 42rem; color: var(--muted); }
+.sisalto-osio ul { padding-left: 1.2rem; }
+.sisalto-osio li + li { margin-top: 0.55rem; }
 
-.sisalto-osio h2 {
-  max-width: 15ch;
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.15;
-}
+.polku-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; margin-top: 1.5rem; background: var(--line); border: 1px solid var(--line); }
+.polku { min-height: 15rem; padding: 1.5rem; background: var(--paper); }
+.polku .osio-numero { color: var(--accent); }
+.polku p { color: var(--muted); }
 
-.sisalto-osio div > p {
-  max-width: 39rem;
-  color: var(--hillitty);
+.huomio {
+  margin: 1rem 0 3rem;
+  padding: 1.25rem 1.5rem;
+  border-left: 4px solid var(--accent);
+  background: #f6e5ec;
+  color: var(--ink);
 }
+.huomio p { margin: 0; }
 
-.yhteys {
-  padding-bottom: 4.5rem;
-}
-
-.sahkoposti {
-  display: inline-block;
-  margin-top: 0.5rem;
-  color: var(--vihrea);
-  font-weight: 700;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 4px;
-}
-
-.sahkoposti span {
-  color: var(--korostus);
-}
+.lahde-lista { list-style: none; padding: 0; }
+.lahde-lista li { padding: 1.1rem 0; border-top: 1px solid var(--line); }
+.lahde-lista a { color: var(--pink-deep); font-weight: 700; text-underline-offset: 4px; }
+.lahde-lista p { margin: 0.35rem 0 0; color: var(--muted); }
 
 .alatunniste {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
   padding-block: 1.5rem;
-  border-top: 1px solid var(--raja);
-  color: var(--hillitty);
+  border-top: 1px solid var(--line);
+  color: var(--muted);
   font-size: 0.82rem;
 }
+.alatunniste p { margin: 0; }
 
-.alatunniste p {
-  margin: 0;
+@media (max-width: 760px) {
+  .ylapalkki, main, .alatunniste { width: min(100% - 2rem, var(--content)); }
+  .ylapalkki { align-items: flex-start; flex-direction: column; justify-content: center; gap: 0.7rem; padding-block: 1rem; }
+  nav { justify-content: flex-start; gap: 0.4rem 1rem; }
+  nav a { font-size: 0.82rem; }
+  .intro { min-height: auto; grid-template-columns: 1fr; gap: 2rem; padding-block: 3.5rem; }
+  .intro-teksti, .hero-kuva { min-width: 0; }
+  .intro h1 { font-size: clamp(2rem, 11vw, 4.5rem); }
+  .hero-kuva img { max-height: 26rem; aspect-ratio: 1.5 / 1; }
+  .esittely-rivi, .toimipaikka-rivi, .sisalto-osio, .kartta-osio { grid-template-columns: 1fr; gap: 0.7rem; padding-block: 2.5rem; }
+  .kartta-kehys, .kartta-kehys iframe { min-height: 20rem; height: 20rem; }
+  .suunta { min-height: 15rem; padding-right: 1rem; }
+  .suunta + .suunta { padding-left: 1.25rem; }
+  .polku-grid { grid-template-columns: 1fr; }
+  .polku { min-height: 0; }
 }
 
-@media (max-width: 700px) {
-  .ylapalkki,
-  main,
-  .alatunniste {
-    width: min(100% - 2rem, var(--sisalto));
-  }
-
-  .intro {
-    min-height: auto;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding-block: 4rem;
-  }
-
-  h1 {
-    font-size: clamp(2.8rem, 12vw, 4.5rem);
-  }
-
-  .koriste {
-    width: min(100%, 22rem);
-    aspect-ratio: 1.35 / 1;
-  }
-
-  .koriste-kirjain {
-    font-size: 10rem;
-  }
-
-  .sisalto-osio {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-    padding-block: 2.5rem;
-  }
-}
-
-@media (max-width: 380px) {
-  .ylapalkki,
-  main,
-  .alatunniste {
-    width: calc(100% - 1.5rem);
-  }
-
-  nav {
-    gap: 1rem;
-  }
+@media (max-width: 420px) {
+  .ylapalkki, main, .alatunniste { width: calc(100% - 1.5rem); }
+  .suunta-kortit { grid-template-columns: minmax(0, 1fr); }
+  .suunta { min-width: 0; min-height: 0; padding: 1.25rem 2.5rem 1.25rem 0; }
+  .suunta + .suunta { padding-left: 0; border-top: 1px solid var(--line); border-left: 0; }
+  .suunta-numero { margin-bottom: 0.5rem; }
+  .alatunniste { flex-wrap: wrap; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    transition-duration: 0.01ms !important;
-  }
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
 }

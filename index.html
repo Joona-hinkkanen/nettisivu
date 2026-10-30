@@ -1,61 +1,97 @@
 <!DOCTYPE html>
+<!-- Muokkausohje: ALOITA_TASTA.md -->
 <html lang="fi">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Henkilökohtainen esittely ja yhteystiedot.">
-  <meta name="theme-color" content="#f6f7f2">
-  <title>Etunimi Sukunimi | Esittely</title>
+  <meta name="description" content="Esittely Rasekon tieto- ja viestintätekniikan opinnoista ja työmahdollisuuksista.">
+  <meta name="theme-color" content="#fbfaf8">
+  <title>Rasekon ICT-ala | Etusivu</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <a class="ohita-linkki" href="#sisalto">Siirry sisältöön</a>
 
   <header class="ylapalkki">
-    <a class="logo" href="#alku" aria-label="Etusivu">ES<span>.</span></a>
+    <a class="logo" href="index.html" aria-label="Rasekon ICT-alan etusivu">
+      <img src="https://www.raseko.fi/wp-content/uploads/2021/11/Raseko-logo-vaaka_VARI-pdf.jpg" alt="Raseko" width="160" height="47">
+    </a>
     <nav aria-label="Päänavigaatio">
-      <a href="#tietoa">Minusta</a>
-      <a href="#yhteys">Yhteys</a>
+      <a href="index.html" aria-current="page">Etusivu</a>
+      <a href="opinnot.html">Opinnot</a>
+      <a href="tyoelama.html">Työelämä</a>
+      <a href="lahteet.html">Lähteet</a>
     </nav>
   </header>
 
   <main id="sisalto">
-    <section class="intro" id="alku" aria-labelledby="pa-otsikko">
+    <section class="intro" aria-labelledby="pa-otsikko">
       <div class="intro-teksti">
-        <p class="ylateksti"><span class="piste" aria-hidden="true"></span> Tervetuloa sivulleni</p>
-        <h1 id="pa-otsikko">Hei, olen<br><span>Etunimi Sukunimi.</span></h1>
-        <p class="ingressi">Teen merkityksellisiä asioita ja pidän uusien ideoiden toteuttamisesta. Tässä muutama sana minusta ja siitä, miten minut tavoittaa.</p>
-        <a class="toiminto" href="#yhteys">Ota yhteyttä <span aria-hidden="true">↗</span></a>
+        <p class="ylateksti"><span class="piste" aria-hidden="true"></span> TIETO- JA VIESTINTÄTEKNIIKKA</p>
+        <h1 id="pa-otsikko">Tekniikkaa.<br>Oivalluksia.<br><span>Uusia mahdollisuuksia.</span></h1>
+        <p class="ingressi">Mitä ICT-alalla opiskellaan, millaisiin töihin koulutus voi johtaa ja millaista osaamista tulevaisuudessa tarvitaan? Tämä esittely kertoo Rasekon tieto- ja viestintätekniikan perustutkinnosta.</p>
+        <a class="toiminto" href="opinnot.html">Tutustu opintoihin <span aria-hidden="true">→</span></a>
       </div>
-      <div class="koriste" aria-hidden="true">
-        <span class="koriste-kirjain">E</span>
-        <span class="koriste-teksti">UTELIAS<br>LUOVA<br>OMA ITSE</span>
-      </div>
-    </section>
-
-    <section class="sisalto-osio" id="tietoa" aria-labelledby="tietoa-otsikko">
-      <p class="osio-numero">01 / ESITTELY</p>
-      <div>
-        <h2 id="tietoa-otsikko">Minusta</h2>
-        <p>Kirjoita tähän lyhyt esittely itsestäsi, työstäsi tai kiinnostuksen kohteistasi. Kerro, mikä sinulle on tärkeää ja millaisissa asioissa voit auttaa.</p>
+      <div class="hero-kuva">
+        <img src="https://www.raseko.fi/wp-content/uploads/2021/11/tivi-1.jpg" alt="Rasekon ICT-opiskelijoita työskentelemässä tietokoneiden äärellä." fetchpriority="high">
+        <p>Käytännön osaamista tietotekniikan parissa <a href="https://www.raseko.fi/koulutustarjonta/tieto-ja-viestintatekniikan-perustutkinto/">Kuva: Raseko</a></p>
       </div>
     </section>
 
-    <section class="sisalto-osio yhteys" id="yhteys" aria-labelledby="yhteys-otsikko">
-      <p class="osio-numero">02 / OTA YHTEYTTÄ</p>
+    <section class="esittely-rivi" aria-labelledby="ala-otsikko">
       <div>
-        <h2 id="yhteys-otsikko">Tehdään jotain hyvää.</h2>
-        <p>Onko mielessäsi yhteistyö tai kysymys? Laita viestiä, niin jutellaan.</p>
-        <a class="sahkoposti" href="mailto:etunimi@example.com">etunimi@example.com <span aria-hidden="true">↗</span></a>
+        <p class="osio-numero">01 / ALA LYHYESTI</p>
+        <h2 id="ala-otsikko">Tietotekniikkaa, josta on hyötyä oikeassa elämässä.</h2>
+      </div>
+      <p>ICT-alalla rakennetaan ja ylläpidetään ohjelmistoja, laitteita ja tietoverkkoja. Rasekossa voit suuntautua esimerkiksi ohjelmistojen kehittämiseen tai tietotekniseen tukeen.</p>
+    </section>
+
+    <section class="suunta-kortit" aria-label="Tutustu ICT-alan suuntiin">
+      <a class="suunta" href="opinnot.html#tutkintonimikkeet">
+        <span class="suunta-numero">A</span>
+        <h2>Ohjelmistokehittäjä</h2>
+        <p>Ohjelmoi sovelluksia ja opi rakentamaan digitaalisia palveluja.</p>
+        <span class="nuoli" aria-hidden="true">↗</span>
+      </a>
+      <a class="suunta" href="opinnot.html#tutkintonimikkeet">
+        <span class="suunta-numero">B</span>
+        <h2>IT-tukihenkilö</h2>
+        <p>Ratkaise laitteisiin, ohjelmistoihin ja verkkoihin liittyviä pulmia.</p>
+        <span class="nuoli" aria-hidden="true">↗</span>
+      </a>
+    </section>
+
+    <section class="kartta-osio" aria-labelledby="paikka-otsikko">
+      <div class="kartta-tekstit">
+        <p class="osio-numero">02 / LÖYDÄ PERILLE</p>
+        <h2 id="paikka-otsikko">Tavataan Rasekon kampuksella.</h2>
+        <p class="kartta-kuvaus">Tieto- ja viestintätekniikan opintoja järjestetään Raision Eeronkujan toimipisteessä.</p>
+        <div class="kartta-osoite">
+          <span class="kartta-neula" aria-hidden="true"></span>
+          <address>Raseko<br>Eeronkuja 4 A<br>21200 Raisio</address>
+        </div>
+        <a class="kartta-linkki" href="https://www.google.com/maps/dir/?api=1&amp;destination=Eeronkuja+4+A%2C+Raisio" target="_blank" rel="noreferrer">
+          <span class="kartta-neula" aria-hidden="true"></span>
+          Avaa reitti Google Mapsissa
+          <span aria-hidden="true">↗</span>
+        </a>
+        <a class="tekstilinkki" href="https://www.raseko.fi/koulutustarjonta/tieto-ja-viestintatekniikan-perustutkinto/">Katso koulutuksen tiedot Rasekon sivuilta <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="kartta-kehys">
+        <div class="kartta-leima"><span class="kartta-neula" aria-hidden="true"></span> RAISIO · EERONKUJA</div>
+        <iframe
+          src="https://maps.google.com/maps?q=Eeronkuja%204%20A%2C%20Raisio&amp;z=15&amp;output=embed"
+          title="Google Maps - Raseko, Eeronkuja 4 A, Raisio"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </div>
     </section>
   </main>
 
   <footer class="alatunniste">
-    <p>© 2026 Etunimi Sukunimi</p>
-    <a href="#alku">Takaisin alkuun ↑</a>
+    <p>Rasekon ICT-ala · Tieto- ja viestintätekniikan perustutkinto</p>
+    <a href="lahteet.html">Lähteet</a>
   </footer>
-
 </body>
 </html>
