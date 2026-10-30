@@ -82,6 +82,66 @@ rivi "nähty" — tiedän silloin, että viesti on mennyt perille.
 
 t. Mikael + avustaja
 
+## Parannusideoita sinulle (30.10.2026)
+
+Kävin sivuston ja skriptin läpi. Ensin tunnustus: perusta on hyvä — `:focus-visible`-tyylit,
+skip-linkki, `prefers-reduced-motion`, `clamp()`-typografia, `aria-current` navigaatiossa ja
+`aria-hidden` koriste-elementeissä ovat kaikki oikein. Nämä ovat siis viilauksia, ei moitteita.
+
+### P1 – rikki tai harhaanjohtava
+
+1. **`ALOITA_TASTA.md` opastaa muuttamaan muuttujia, joita ei ole.** Ohjeessa lukee
+   `--tausta`, `--teksti`, `--pinkki`, `--sivun-leveys`. `style.css`:ssä ne ovat oikeasti
+   `--paper`, `--ink`, `--accent`, `--content`. Aloittelija ei löydä niitä → korjaa joko
+   ohje tai lisää aliakset `:root`iin.
+2. **`server.js` tuntee vain kaksi tiedostoa.** `const FILES = ['index.html', 'style.css'];`
+   Jos 5-sivuinen versio mergetään `main`iin, selaineditori ei näe `opinnot.html`,
+   `tyoelama.html` eikä `lahteet.html` -sivuja, ja esikatselu näyttää vain etusivun.
+   Jos merge tehdään, lisää sivut `FILES`-taulukkoon ja editorin välilehtiin — mielellään
+   samassa commitissa.
+3. **`tyoelama.html` rivillä 90** linkin koristeena on `<span aria-hidden="true">?</span>`
+   kun muilla sivuilla on `↗`. Näyttää encoding-mokalta.
+
+### P2 – laatu ja viimeistely
+
+4. `meta name="theme-color"` on `#fbfaf8`, mutta `--paper` on `#fff7fa`. Eri sävy →
+   mobiiliselaimen palkki hyppää eri väriin kuin sivu.
+5. **Kuvat ovat hotlinkkejä raseko.fi:hin** (logo + hero-kuva). Jos Raseko vaihtaa
+   polun, sivusto hajoaa. Lataa kuvat `kuvat/`-kansioon repoon. Lisää samalla hero-kuvalle
+   `width`/`height` (nyt layout hyppii latautuessa) ja `decoding="async"`.
+6. **Favicon puuttuu** → selain hakee `/favicon.ico` ja saa 404. Pieni SVG-favicon riittää.
+7. **Ei Open Graph -tageja.** Kun linkki jaetaan WhatsAppissa tai Discordissa, esikatselua
+   ei tule. `og:title`, `og:description`, `og:image`, `og:locale` + `og:type`.
+8. **`.toimipaikka-rivi` on kuollut CSS** — ei käytössä yhdelläkään sivulla. Poista tai ota käyttöön.
+9. **Tulostustyyli puuttuu.** Opettaja tulostaa sivun → yläpalkki, napit ja kartta-iframe
+   tulostuvat. `@media print { .ylapalkki, .kartta-kehys, iframe { display: none } }` auttaa.
+10. `lahteet.html`: vain ensimmäisellä lähteellä on "Tarkistettu"-päivä. Lisää kaikille tai
+    käytä `<time datetime="2026-10-29">`.
+11. Etusivun kaksi `.suunta`-korttia osoittavat molemmat `opinnot.html#tutkintonimikkeet`.
+    Syvemmät ankkurit (`#ohjelmistokehittaja`, `#it-tukihenkilo`) tekisivät linkeistä hyödyllisemmät.
+
+### P3 – prosessi ja työkalut
+
+12. **`.gitattributes` puuttuu.** Git varoitti tänään `index.html`:stä ja `style.css`:stä
+    "LF will be replaced by CRLF". Ehdotus:
+
+    ```
+    * text=auto
+    *.html text eol=crlf
+    *.css  text eol=crlf
+    *.ps1  text eol=crlf
+    *.sh   text eol=lf
+    ```
+
+13. `auto-commit.ps1` committoi `git add -A`:lla kaiken. Lisää turvaksi tarkistus, ettei
+    mukaan tule yli 1 MB tiedostoja, ja laita commit-viestiin muuttuneet tiedostonimet —
+    historiasta on silloin oikeasti hyötyä.
+14. Jos `auto-commit` on päällä molemmilla koneilla, syntyy kilpaa puskaavia committeja.
+    Sopisiko, että se on päällä vain toisella? Minun puolellani se ei ole käynnissä.
+
+Nämä ovat ehdotuksia, ei vaatimuksia — poimi ne, jotka sopivat teidän työhön. Jos joku
+kohta on tarkoituksella noin, kerro miksi, niin opin.
+
 ## Vastaukset
 
 > Kirjoita vastaus tähän muotoon ja committoi + pushaa:
